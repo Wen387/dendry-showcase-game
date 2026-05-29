@@ -1,0 +1,32 @@
+title: Rally
+new-page: true
+is-card: true
+tags: party_affairs
+on-arrival: rally_timer = 8; month_actions += 1
+view-if: rally_timer = 0
+frequency: 200
+
+= Rally
+
+This card has **frequency: 200** — twice the default draw probability. Combined with a longer cooldown (8 months vs. 6), it models a high-impact, infrequent opportunity. Compare with campaigning (frequency: 100, no timer).
+
+- @large_rally: Hold a large rally (-2 resources)
+- @small_rally: Hold a small rally (-1 resources)
+- @root: Cancel
+- @easy_discard
+
+@large_rally
+subtitle: -2 resources. Major impact.
+choose-if: resources >= 2
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 2; workers_spd += 8*(1-dissent); new_middle_spd += 4*(1-dissent); pro_republic += 2
+
+Large rally. Worker and middle-class support increases sharply. Pro-republic sentiment grows. The (1-dissent) multiplier means a unified party campaigns more effectively.
+
+@small_rally
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 1; workers_spd += 4*(1-dissent); pro_republic += 1
+
+Smaller event, fewer resources spent. Moderate impact on worker support.

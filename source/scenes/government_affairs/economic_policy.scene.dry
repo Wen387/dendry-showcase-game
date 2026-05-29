@@ -1,0 +1,33 @@
+title: Economic Policy
+new-page: true
+is-card: true
+tags: govt_affairs
+on-arrival: economic_policy_timer = 8; month_actions += 1
+view-if: spd_in_government = 1 and economic_policy_timer = 0
+
+= Economic Policy
+
+This card demonstrates **economic variable interactions**. Decisions here affect inflation, growth, and budget — which feed back through the Phillips curve in post_event each month. Short-term gains can create long-term spirals.
+
+- @stimulus: Stimulus spending (-2 budget)
+- @austerity: Austerity measures (+1 budget)
+- @maintain: Maintain current policy
+- @easy_discard
+
+@stimulus
+subtitle: -2 budget, boosts growth.
+choose-if: budget >= 2
+unavailable-subtitle: Budget too low.
+on-arrival: budget -= 2; economic_growth += 1.5; inflation += 0.3; workers_spd += 3*(1-dissent); unemployed_spd += 4*(1-dissent); labor_dissent -= 5
+
+Stimulus boosts growth and worker support, but inflation rises. Budget cost is steep. Watch the Phillips curve feedback in post_event.
+
+@austerity
+subtitle: +1 budget, slows growth.
+on-arrival: budget += 1; economic_growth -= 0.5; workers_spd -= 3; unemployed_spd -= 4; reformist_dissent += 5
+
+Austerity saves budget but reduces growth. Worker and unemployed support drops. Reformists object.
+
+@maintain
+
+No change. Current policy continues.

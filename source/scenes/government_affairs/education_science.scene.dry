@@ -1,0 +1,37 @@
+title: Education and Science
+new-page: true
+is-card: true
+tags: govt_affairs
+on-arrival: education_science_timer = 12; month_actions += 1
+view-if: spd_in_government = 1 and education_science_timer = 0
+
+= Education and Science
+
+This card demonstrates **long-term investment** mechanics. Education and science have a very long cooldown (12 months) but create permanent effects. The Q.science variable feeds a growth bonus calculated every month in post_event — small per tick, but compounding over many turns.
+
+- @invest_science: Invest in science (-1 budget)
+- @expand_education: Expand education (-1 budget)
+- @cut_funding: Cut funding (+1 budget)
+- @easy_discard
+
+@invest_science
+subtitle: -1 budget. Permanent growth bonus.
+choose-if: budget >= 1
+unavailable-subtitle: Budget too low.
+on-arrival: budget -= 1; science += 1; reformist_dissent -= 3
+
+Science investment adds a permanent trickle of economic growth via the science_bonus calculation in post_event. The bonus compounds over the game.
+
+@expand_education
+subtitle: -1 budget. Long-term democratic benefit.
+choose-if: budget >= 1
+unavailable-subtitle: Budget too low.
+on-arrival: budget -= 1; education_science += 1; pro_republic += 1; left_dissent -= 3
+
+Education spending increases pro-republic sentiment and provides a science bonus. Effects accumulate gradually.
+
+@cut_funding
+subtitle: +1 budget.
+on-arrival: budget += 1; science -= 1 if science > 0; labor_dissent += 3; left_dissent += 5
+
+Cutting funding saves budget now but sacrifices long-term growth. Multiple factions object.

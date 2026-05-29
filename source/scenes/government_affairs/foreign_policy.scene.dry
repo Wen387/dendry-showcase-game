@@ -1,0 +1,33 @@
+title: Foreign Policy
+new-page: true
+is-card: true
+tags: govt_affairs
+on-arrival: foreign_policy_timer = 10; month_actions += 1
+view-if: spd_in_government = 1 and foreign_policy_timer = 0
+
+= Foreign Policy
+
+This card demonstrates **cross-domain effects**: foreign policy choices affect domestic opinion (nationalism, pro_republic) and economic variables (growth via trade). The long cooldown (10 months) reflects the slow pace of diplomacy.
+
+- @western: Strengthen Western ties
+- @eastern: Improve Eastern relations
+- @nationalist: Assert national interests
+- @easy_discard
+
+@western
+subtitle: Boosts trade and republic support.
+on-arrival: west_relation += 1; economic_growth += 0.3; pro_republic += 2; nationalism -= 2; left_dissent += 3
+
+Western cooperation improves trade and republican sentiment. Nationalists and the left object to perceived subservience.
+
+@eastern
+subtitle: Regional stability.
+on-arrival: east_relation += 1; pro_republic += 1; left_dissent -= 3; center_dissent += 2
+
+Eastern engagement appeals to the left but concerns centrists. Smaller economic impact than Western ties.
+
+@nationalist
+subtitle: Popular but diplomatically costly.
+on-arrival: nationalism += 3; pro_republic -= 1; west_relation -= 1; workers_spd += 2; old_middle_spd += 3; reformist_dissent += 5
+
+Nationalist posturing boosts domestic support across classes but damages international relations and alarms reformists.

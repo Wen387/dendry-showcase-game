@@ -1,0 +1,34 @@
+title: Party Ideology
+new-page: true
+is-card: true
+tags: party_affairs
+on-arrival: ideology_timer = 10; month_actions += 1
+view-if: ideology_timer = 0
+
+= Party Ideology
+
+This card demonstrates **faction dissent management**. Ideological decisions affect faction satisfaction asymmetrically — pleasing one group angers another. The long cooldown (10 months) makes this a rare, weighty decision compared to routine cards.
+
+- @left_shift: Adopt left positions
+- @center_hold: Maintain centrist course
+- @reformist_shift: Emphasize pragmatic reform
+- @root: Defer
+- @easy_discard
+
+@left_shift
+subtitle: Left pleased, centrists unhappy.
+on-arrival: left_dissent -= 15; labor_dissent -= 5; center_dissent += 10; reformist_dissent += 8; radicalization += 1; socialism += 2
+
+Left shift reduces left-faction dissent but increases centrist and reformist dissent. Also raises national socialism meter.
+
+@center_hold
+subtitle: Centrists pleased, minor left dissent.
+on-arrival: center_dissent -= 10; left_dissent += 5; reformist_dissent -= 3
+
+Maintaining the center keeps the largest faction happy. Modest left-wing grumbling.
+
+@reformist_shift
+subtitle: Reformists pleased, left unhappy.
+on-arrival: reformist_dissent -= 15; labor_dissent -= 3; left_dissent += 10; center_dissent += 3; pro_republic += 1
+
+Reformist emphasis boosts republican credentials but alienates the left wing.

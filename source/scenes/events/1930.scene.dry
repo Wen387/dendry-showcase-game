@@ -1,0 +1,18 @@
+title: Year 3 begins
+new-page: true
+is-card: true
+tags: event
+view-if: year = 1930 and month >= 1
+max-visits: 1
+priority: 2
+on-arrival: resources += 1; dues += 1
+
+= Year 3 Begins
+
+A new year. The party collects additional resources from annual dues. This event demonstrates **annual milestone events** — high-priority one-shots that fire at year boundaries to adjust game state and signal progression.
+
+- @continue: Continue
+
+@continue
+
+Annual dues collected. Resources +1.

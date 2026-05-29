@@ -20,7 +20,13 @@ if (Q.economic_growth) {
 
 Resources: [+ resources +]
 
+Budget: [+ budget +]
+
 Internal dissent: [+ dissent_percent : dissent +]
+
+= Government
+
+Chancellor: [+ chancellor +] ([+ chancellor_party +])
 
 = Economics
 
@@ -29,6 +35,14 @@ Inflation: [+ inflation_2 +]%
 Unemployment: [+ unemployed_2 +]%
 
 Economic growth: [+ economic_growth_2 +]%
+
+= Public Opinion
+
+Pro-republic: [+ pro_republic +]%
+
+Nationalism: [+ nationalism +]
+
+Socialism: [+ socialism +]
 
 = Factions
 

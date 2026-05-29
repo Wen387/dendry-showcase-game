@@ -1,0 +1,32 @@
+title: Media Outreach
+new-page: true
+is-card: true
+tags: party_affairs
+on-arrival: media_timer = 8; month_actions += 1
+view-if: media_timer = 0
+frequency: 80
+
+= Media Outreach
+
+This card has **frequency: 80** — lower than default, making it rarer. Media targets middle-class demographics, unlike campaigning (workers) or rally (broad). Different frequency values across cards create varied draw probability.
+
+- @press: Launch press campaign (-1 resources)
+- @radio: Radio broadcast (-2 resources, wider reach)
+- @root: Skip
+- @easy_discard
+
+@press
+subtitle: -1 resources, targets middle class.
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 1; new_middle_spd += 5*(1-dissent); old_middle_spd += 3*(1-dissent)
+
+Press outreach increases middle-class support. Each card targets different demographics — compare with campaigning and rally.
+
+@radio
+subtitle: -2 resources, all demographics.
+choose-if: resources >= 2
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 2; workers_spd += 3*(1-dissent); new_middle_spd += 4*(1-dissent); old_middle_spd += 3*(1-dissent); rural_spd += 2*(1-dissent)
+
+Radio reaches all demographics. More expensive but broader impact than press.
