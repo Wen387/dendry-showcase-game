@@ -7,11 +7,7 @@ new-page: true
 
 = Sample Event: Cultural Policy
 
-A controversial work of art has drawn public attention. Different factions want different responses. This event demonstrates:
-
-- **view-if**: appears only when time conditions are met
-- **max-visits: 1**: fires once per playthrough
-- **Multiple choices** with different variable effects
+A controversial work of art has drawn public attention. Different factions want different responses. This event demonstrates **view-if** (appears only when time conditions are met), **max-visits: 1** (fires once per playthrough), and **multiple choices** with different variable effects.
 
 - @ban: Suppress it (conservative response)
 - @allow: Allow it (moderate response)
