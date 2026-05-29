@@ -4,36 +4,32 @@ view-if: fundraising_timer <= 0 and (not historical_mode)
 on-arrival: fundraising_timer = 6; month_actions += 1
 frequency: 300
 is-card: true
-card-image: img/poster_2.jpg
 tags: party_affairs
 
 = Fundraising
 
-For better or for worse, the party cannot exist without money.
+This card demonstrates the **timer + frequency** pattern. It only appears when fundraising_timer <= 0 (set to 6 on use, decremented monthly in post_event). The frequency: 300 makes it appear more often than default cards.
 
-- @maintain: Maintain our current dues.
-- @reduce: Reduce dues.
-- @increase: Increase dues.
+- @maintain: Maintain current dues
+- @reduce: Reduce dues
+- @increase: Increase dues
 
 @maintain
 subtitle: [+ dues +] resources gained.
 on-arrival: resources += dues;
 
-We maintain our current dues.
+Current dues maintained. +[+ dues +] resources.
 
 @reduce
 subtitle: [+ dues - 1 +] resources gained.
 choose-if: dues > 1
 on-arrival: dues -= 1; resources += dues; left_dissent -= 8; center_dissent -= 8; reformist_dissent -= 8; labor_dissent -= 8
 
-Our current members appreciate this, but no one decides to join a party because of the low dues.
+Dues reduced. Less income, but faction dissent decreases.
 
 @increase
-subtitle: [+ dues + 1 +] resources gained. [? if unemployed >= 15 : Given the present economic situation, this may be painful. ?][? if dues >= 4 : Dues are already rather high; increasing them might reduce our membership. ?]
-on-arrival: dues += 1; resources += dues; workers_spd -= 3; unemployed_spd -= 3; workers_spd -= 10 if unemployed >= 15; unemployed_spd -= 10 if unemployed >= 15; workers_spd -= 3*dues if dues >= 5; unemployed_spd -= 3*dues if dues >= 5
+subtitle: [+ dues + 1 +] resources gained.
+on-arrival: dues += 1; resources += dues; workers_spd -= 3; unemployed_spd -= 3
 view-if: dues <= 4
 
-Our members grumble at this, and some of the less committed members leave. But now, we have access to additional resources. 
-
-[? if unemployed >= 15 : Because of the presently high unemployment, our members are feeling the extra burden hard. ?]
-
+Dues increased. More income, but some voter support lost.

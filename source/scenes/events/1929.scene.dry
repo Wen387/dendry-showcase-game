@@ -1,13 +1,13 @@
-title: 1929
+title: Year 2 begins
 subtitle: A new year
 on-arrival: {!
-// see post_event.scene.dry for changes.
-Q.economic_growth -= 4;
-
+Q.economic_growth -= 2;
 !}
 tags: event
 view-if: year = 1929 and month = 1
 priority: 2
 max-visits: 1
 
-A new year begins. The economy appears to be slackening; unemployment is increasing throughout the republic, although for the most part, people are still doing well.
+A new year begins. The economy shows signs of slowing.
+
+This event demonstrates **priority: 2** (higher priority events are shown first) and **year-based triggers**. The on-arrival block uses JavaScript to adjust variables.

@@ -1,13 +1,12 @@
-title: Otto Wels
+title: Advisor Alpha
 is-pinned-card: true
 tags: advisor, centrist
-card-image: img/portraits/WelsOtto.jpg
 view-if: wels_advisor = 1
 new-page: true
 
-= Otto Wels
+= Advisor Alpha
 
-Wels is the long-time chairman of the SPD. He is a gifted organizer and a member of the centrist faction.
+This is a centrist-faction advisor. Advisors are pinned cards that offer unique actions with a shared cooldown (advisor_action_timer).
 
 - @clear_agenda
 - @party_discipline
@@ -29,7 +28,7 @@ if (Q.difficulty >= 0) {
 }
 !}
 
-All items from our agenda have been cleared.
+The hand has been cleared. This uses a direct engine API call to empty the hand array.
 
 @party_discipline
 title: Party Discipline
@@ -38,7 +37,7 @@ choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 6; left_dissent -= 5; labor_dissent -= 10; center_dissent -= 10; reformist_dissent -= 10; neorevisionist_dissent -= 5
 
-We have enforced party discipline to reduce dissent across all factions.
+Dissent reduced across all factions. Note the on-arrival syntax for multi-variable effects.
 
 @emergency_fundraising
 title: Emergency Fundraising
@@ -48,14 +47,14 @@ choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 6; resources += dues
 
-We have gained +[+ dues +] resources.
++[+ dues +] resources gained. The view-if hides this option on higher difficulties.
 
 @snap_election
 title: Snap Election
 subtitle: Call a snap election.
-unavailable-subtitle: [? if chancellor != "Wels" : Wels must be Chancellor or President. ?][? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-choose-if: advisor_action_timer == 0 and (chancellor == "Wels")
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+choose-if: advisor_action_timer == 0
 on-arrival: advisor_action_timer = 6; time_to_election = 3
 call: set_next_election_time
 
-We have called for new elections, set for [+ next_election_month : month +] [+ next_election_year +].
+New elections set for [+ next_election_month : month +] [+ next_election_year +]. This uses **call:** to invoke a utility scene.

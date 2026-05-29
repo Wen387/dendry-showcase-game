@@ -1,10 +1,14 @@
-title: Economic Expansion
+title: Sample Event: Economic Boom
 subtitle: The economy is growing steadily.
 new-page: true
 view-if: economic_expansion >= 85 and unemployed <= 6 and inflation <= 6 and spd_in_government
-on-arrival: economic_expansion = 0; capital_strike_progress -= 2 if capital_strike_progress >= 2; budget += 1; workers_spd += 4*(1-dissent) if spd_in_government; new_middle_spd += 2*(1-dissent) if spd_in_government; old_middle_spd += 2*(1-dissent) if spd_in_government; rural_spd += 2*(1-dissent) if spd_in_government; new_middle_ddp += 5 if in_weimar_coalition or in_grand_coalition or in_popular_front; workers_kpd += 3 if in_popular_front or in_left_front; old_middle_dvp += 4 if in_grand_coalition; new_middle_dvp += 3 if in_grand_coalition; inflation += 0.4
+on-arrival: economic_expansion = 0; budget += 1; workers_spd += 4*(1-dissent) if spd_in_government; inflation += 0.4
 tags: event
 
-= Economic Expansion
+= Sample Event: Economic Boom
 
-The German economy has been growing steadily for an extended period of time, and has low inflation and unemployment. The government is rewarded by additional tax revenue from the same tax rates. Even the capitalists find that they have little to complain about when it comes to government policies. One downside of this economic growth, however, is the rising risk of inflation.
+The economy has been growing for an extended period. This event demonstrates a **threshold-triggered recurring event** — it fires whenever economic_expansion reaches 85 while unemployment and inflation are low.
+
+Unlike max-visits events, this can fire multiple times because the on-arrival resets the trigger variable (economic_expansion = 0).
+
+Effects: +1 budget, slight inflation increase, party support boost if in government.
