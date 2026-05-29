@@ -1,0 +1,36 @@
+title: New action card
+new-page: true
+is-card: true
+tags: party_affairs
+priority: 5
+frequency: 200
+max-visits: 1
+subtitle: A small card generated as an export-only proposal.
+
+= A new card enters the hand
+
+A card draft can describe a repeatable player action, advisor-like panel, or other hand/deck entry.
+
+- @spend_resources: Spend resources
+- @save_capacity: Save capacity
+
+@spend_resources
+subtitle: Use resources for a stronger outcome.
+on-arrival: {!
+Q.resources -= 1;
+Q.media_reach += 1;
+!}
+
+The party spends limited capacity to push the card's main effect.
+
+go-to: root
+
+@save_capacity
+subtitle: Leave resources untouched.
+on-arrival: {!
+Q.resources += 1;
+!}
+
+The organization saves effort for another opening.
+
+go-to: root

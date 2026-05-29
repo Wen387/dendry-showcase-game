@@ -1,0 +1,15 @@
+{
+  "name": "dendry-showcase-game",
+  "version": "0.1.0",
+  "description": "A Dendry game scaffold for Dendry Mod Studio's Featured Templates catalog.",
+  "author": "Awen (based on Social Democracy by Autumn Chen)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wen387/dendry-showcase-game.git"
+  },
+  "dependencies": {
+    "dendrynexus": "github:aucchen/dendrynexus",
+    "parliament-svg": "^3.0.0"
+  }
+}
