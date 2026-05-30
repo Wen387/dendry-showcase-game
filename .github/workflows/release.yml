@@ -12,8 +12,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Build game
+        run: |
+          npm install
+          npx dendrynexus make-html --force
+
       - name: Package source
-        run: tar -czf showcase-game-source.tar.gz source/ package.json LICENSE README.md
+        run: |
+          tar -czf showcase-game-source.tar.gz \
+            source/ package.json LICENSE README.md \
+            out/html/
 
       - name: Upload release assets
         uses: softprops/action-gh-release@v2
